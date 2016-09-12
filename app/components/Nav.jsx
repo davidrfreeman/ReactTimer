@@ -1,49 +1,24 @@
 import React from 'react';
 import {Link, IndexLink} from 'react-router';
-import WeatherForm from 'WeatherForm';
 
-export default class Nav extends React.Component {
+const Nav = () => {
 
-  constructor(props) {
-    super(props);
-  }
-
-  onSearch(e) {
-    e.preventDefault();
-
-    let location = this.refs.search.value;
-    let encodedLocation = encodeURIComponent(location);
-
-    if(location.length > 0) {
-      this.refs.search.value = '';
-      window.location.search = 'location=' + location;
-    }
-  }
-
-  render() {
-    return (
+  return (
     <div className="top-bar">
       <div className="top-bar-left">
         <ul className="menu">
-          <li className="menu-text">React Weather App</li>
-              <li><IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink></li>
-              <li><Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</Link></li>
-              <li><Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link></li>
+          <li className="menu-text">React Timer App</li>
+          <li><Link to="/" activeClassName="activeLink">Timer</Link></li>
+          <li><Link to="/" activeClassName="activeLink">Countdown</Link></li>
         </ul>
       </div>
       <div className="top-bar-right">
-        <form onSubmit={this.onSearch.bind(this)}>
         <ul className="menu">
-          <li>
-            <input type="search" ref="search" placeholder="Search Weather by City"/>
-          </li>
-          <li>
-            <input type="submit" className="button" value="Get Weather"/>
-          </li>
+          <li className="menu-text">Created By<a href="https://github.com/davidrfreeman" target="_blank">David Freeman</a></li>
         </ul>
-        </form>
       </div>
     </div>
-    );
-  }
+  );
 }
+
+export default Nav;
