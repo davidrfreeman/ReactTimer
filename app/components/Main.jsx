@@ -4,7 +4,7 @@ import Nav from 'Nav';
 const Main = (props) => {
   return (
     <div>
-    <Nav/>
+      <Nav/>
       <div className="row">
         <div className="columns small-12">
         <p>Main.jsx Rendered!</p>
