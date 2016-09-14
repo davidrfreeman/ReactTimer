@@ -4,6 +4,7 @@ import {Route, Router, IndexRoute, browserHistory} from 'react-router';
 import Main from 'Main';
 import Timer from 'Timer';
 import Countdown from 'Countdown';
+import Clock from 'Clock';
 
 require('style!css!foundation-sites/dist/foundation.min.css')
 $(document).foundation();
