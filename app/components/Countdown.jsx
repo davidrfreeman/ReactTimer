@@ -5,7 +5,7 @@ import CountdownForm from 'CountdownForm';
 export default class Countdown extends React.Component {
   constructor(props) {
     super(props);
-    // Bind 'this' context for handleSetCountdown method
+    // Bind 'this' contexts for Countdown class methods
     this.handleSetCountdown = this.handleSetCountdown.bind(this);
     this.startTimer = this.startTimer.bind(this);
 
