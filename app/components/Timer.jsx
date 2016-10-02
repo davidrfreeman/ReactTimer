@@ -18,8 +18,8 @@ export default class Timer extends React.Component {
   componentDidUpdate(prevProps, prevState) {
 
     // If the state of countdownStatus has changed then we can do things based on what the countdownStatus is
-    if(this.state.countdownStatus !== prevState.countdownStatus) {
-      switch(this.state.countdownStatus) {
+    if(this.state.timerStatus !== prevState.timerStatus) {
+      switch(this.state.timerStatus) {
         case 'started':
           this.startTimer();
           break;
@@ -35,23 +35,21 @@ export default class Timer extends React.Component {
 
   startTimer() {
     this.timer = setInterval(() => {
-      let newCount = this.state.count + 1;
       this.setState({
         // Checks to make sure the timer uses only positive numbers
-        count: newCount
+        count: this.state.count + 1
       });
-
-      if(newCount === 0) {
-        this.setState({timerStatus: 'stopped'});
-      }
     }, 1000)
   }
 
-  handleStatusChange(newStatus) {
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  handleStatusChange(newTimerStatus) {
     this.setState({
-      timerStatus: newStatus
+      timerStatus: newTimerStatus
     });
-    console.log(this.state.timerStatus);
   }
 
   render() {
